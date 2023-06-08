@@ -40,10 +40,10 @@ public class Song
 	 * Explicit constructor without ID. Construct the song object with its name, artist, album, genre, and file format.
 	 * Does not initialize the song's ID.
 	 * @param title The name of the song.
-	 * @param artistID Reference to the name of the artist.
-	 * @param albumID Reference to the name of the song's album.
-	 * @param genreID Reference to the genre of the song.
-	 * @param formatID Reference to the file format of the song.
+	 * @param artist Reference to the name of the artist.
+	 * @param album Reference to the name of the song's album.
+	 * @param genre Reference to the genre of the song.
+	 * @param format Reference to the file format of the song.
 	 */
 	public Song(String title, Artist artist, Album album, Genre genre, Format format)
 	{
@@ -58,10 +58,10 @@ public class Song
 	 * Explicit constructor. Construct the song object with its ID, name, artist, album, genre, and file format.
 	 * @param ID The ID of the song.
 	 * @param title The name of the song.
-	 * @param artistID Reference to the name of the artist.
-	 * @param albumID Reference to the name of the song's album.
-	 * @param genreID Reference to the genre of the song.
-	 * @param formatID Reference to the file format of the song.
+	 * @param artist Reference to the name of the artist.
+	 * @param album Reference to the name of the song's album.
+	 * @param genre Reference to the genre of the song.
+	 * @param format Reference to the file format of the song.
 	 */
 	public Song(int ID, String title, Artist artist, Album album, Genre genre, Format format)
 	{

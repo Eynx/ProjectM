@@ -63,6 +63,6 @@ public class Format
 	@Override
 	public String toString()
 	{
-		return MessageFormat.format("{\"ID\": {0},\"Extension\": \"{1}\"}", ID, Extension);
+		return MessageFormat.format("'{'\"ID\": {0},\"Extension\": \"{1}\"'}'", ID, Extension);
 	}
 }

@@ -62,6 +62,6 @@ public class Album
 	@Override
 	public String toString()
 	{
-		return MessageFormat.format("{\"ID\": {0}, \"Name\": \"{1}\"}", ID, Name);
+		return MessageFormat.format("'{'\"ID\": {0}, \"Name\": \"{1}\"'}'", ID, Name);
 	}
 }

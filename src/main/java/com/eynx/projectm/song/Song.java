@@ -134,6 +134,6 @@ public class Song
 	@Override
 	public String toString()
 	{
-		return MessageFormat.format("{\"ID\": {0}, \"Title\": \"{1}\", \"artist\": {2}, \"album\": {3}, \"genre\": {4}, \"format\": {5}}", ID, title, artist, album, genre, format);
+		return MessageFormat.format("'{'\"ID\": {0}, \"Title\": \"{1}\", \"artist\": {2}, \"album\": {3}, \"genre\": {4}, \"format\": {5}'}'", ID, title, artist, album, genre, format);
 	}
 }

@@ -55,6 +55,27 @@ public class Song
 	}
 
 	/**
+	 * Explicit constructor. Construct the song object, set its name, and allocate the member objects to set their IDs.
+	 * @param title The name of the song.
+	 * @param artistID The ID of the song's artist.
+	 * @param albumID The ID of the song's album.
+	 * @param genreID The ID of the song's genre.
+	 * @param formatID The ID of the song's file format.
+	 */
+	public Song(String title, int artistID, int albumID, int genreID, int formatID)
+	{
+		this.title = title;
+		this.artist = new Artist();
+		this.album = new Album();
+		this.genre = new Genre();
+		this.format = new Format();
+		this.artist.setID(artistID);
+		this.album.setID(albumID);
+		this.genre.setID(genreID);
+		this.format.setID(formatID);
+	}
+
+	/**
 	 * Explicit constructor. Construct the song object with its ID, name, artist, album, genre, and file format.
 	 * @param ID The ID of the song.
 	 * @param title The name of the song.
@@ -71,6 +92,29 @@ public class Song
 		this.album = album;
 		this.genre = genre;
 		this.format = format;
+	}
+
+	/**
+	 * Explicit constructor. Construct the song object, set its ID and name, and allocate the member objects to set their IDs.
+	 * @param ID The ID of the song.
+	 * @param title The name of the song.
+ 	 * @param artistID The ID of the song's artist.
+	 * @param albumID The ID of the song's album.
+	 * @param genreID The ID of the song's genre.
+	 * @param formatID The ID of the song's file format.
+	 */
+	public Song(int ID, String title, int artistID, int albumID, int genreID, int formatID)
+	{
+		this.ID = ID;
+		this.title = title;
+		this.artist = new Artist();
+		this.album = new Album();
+		this.genre = new Genre();
+		this.format = new Format();
+		this.artist.setID(artistID);
+		this.album.setID(albumID);
+		this.genre.setID(genreID);
+		this.format.setID(formatID);
 	}
 
 	// === Getters/Setters ====================================================
@@ -93,38 +137,38 @@ public class Song
 		this.title = title;
 	}
 
-	public Artist getArtistID()
+	public Artist getArtist()
 	{
 		return artist;
 	}
-	public void setArtistID(Artist artist)
+	public void setArtist(Artist artist)
 	{
 		this.artist = artist;
 	}
 
-	public Album getAlbumID()
+	public Album getAlbum()
 	{
 		return album;
 	}
-	public void setAlbumID(Album album)
+	public void setAlbum(Album album)
 	{
 		this.album = album;
 	}
 
-	public Genre getGenreID()
+	public Genre getGenre()
 	{
 		return genre;
 	}
-	public void setGenreID(Genre genre)
+	public void setGenre(Genre genre)
 	{
 		this.genre = genre;
 	}
 
-	public Format getFormatID()
+	public Format getFormat()
 	{
 		return format;
 	}
-	public void setFormatID(Format format)
+	public void setFormat(Format format)
 	{
 		this.format = format;
 	}

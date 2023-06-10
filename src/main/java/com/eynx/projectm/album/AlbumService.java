@@ -1,10 +1,17 @@
 package com.eynx.projectm.album;
 
+import com.eynx.sql.Database;
+
 import java.util.List;
 
 public class AlbumService
 {
-	private final AlbumDAO albumDAO = new AlbumDAO();
+	private final AlbumDAO albumDAO;
+
+	public AlbumService(Database database)
+	{
+		this.albumDAO = new AlbumDAO(database);
+	}
 
 	public List<Album> getAlbums()
 	{

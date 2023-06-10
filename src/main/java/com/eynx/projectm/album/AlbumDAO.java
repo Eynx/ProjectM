@@ -1,8 +1,7 @@
 package com.eynx.projectm.album;
 
-import com.eynx.projectm.Application;
-import com.eynx.projectm.artist.Artist;
 import com.eynx.sql.Connection;
+import com.eynx.sql.Database;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,9 +16,16 @@ public class AlbumDAO
 {
 	private static final Logger log = LoggerFactory.getLogger(AlbumDAO.class);
 
+	private final Database database;
+
+	public AlbumDAO(Database database)
+	{
+		this.database = database;
+	}
+
 	public List<Album> getAlbums()
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Querying the database. Retrieving all of the song albums in the Albums table.");
 
@@ -44,7 +50,7 @@ public class AlbumDAO
 
 	public Album getAlbumByID(int id)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Querying the database. Retrieving a song album by its ID from the Albums table.");
 
@@ -68,7 +74,7 @@ public class AlbumDAO
 
 	public boolean addAlbum(Album album)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Updating the database. Adding a new song album to the Artists table.");
 
@@ -106,7 +112,7 @@ public class AlbumDAO
 
 	public boolean updateAlbum(Album album)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Updating the database. Updating an existing song album in the Albums table.");
 
@@ -132,7 +138,7 @@ public class AlbumDAO
 
 	public boolean removeAlbum(int id)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Updating the database. Removing an existing song album from the Albums table.");
 

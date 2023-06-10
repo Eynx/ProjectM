@@ -1,7 +1,7 @@
 package com.eynx.projectm.song;
 
-import com.eynx.projectm.Application;
 import com.eynx.sql.Connection;
+import com.eynx.sql.Database;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,9 +16,16 @@ public class SongDAO
 {
 	private static final Logger log = LoggerFactory.getLogger(SongDAO.class);
 
+	private final Database database;
+
+	public SongDAO(Database database)
+	{
+		this.database = database;
+	}
+
 	public List<Song> getSongs()
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Querying the database. Retrieving all of the songs in the Songs table.");
 
@@ -43,7 +50,7 @@ public class SongDAO
 
 	public Song getSongByID(int id)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Querying the database. Retrieving a song by its ID from the Songs table.");
 
@@ -67,7 +74,7 @@ public class SongDAO
 
 	public boolean addSong(Song song)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Updating the database. Adding a new song to the Songs table.");
 
@@ -109,7 +116,7 @@ public class SongDAO
 
 	public boolean updateSong(Song song)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Updating the database. Updating an existing song in the Songs table.");
 
@@ -139,7 +146,7 @@ public class SongDAO
 
 	public boolean removeSong(int id)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Updating the database. Removing an existing song from the Songs table.");
 

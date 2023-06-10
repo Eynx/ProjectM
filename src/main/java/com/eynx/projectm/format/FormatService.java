@@ -1,10 +1,17 @@
 package com.eynx.projectm.format;
 
+import com.eynx.sql.Database;
+
 import java.util.List;
 
 public class FormatService
 {
-	private final FormatDAO formatDAO = new FormatDAO();
+	private final FormatDAO formatDAO;
+
+	public FormatService(Database database)
+	{
+		this.formatDAO = new FormatDAO(database);
+	}
 
 	public List<Format> getAlbums()
 	{

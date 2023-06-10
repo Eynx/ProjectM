@@ -1,10 +1,17 @@
 package com.eynx.projectm.artist;
 
+import com.eynx.sql.Database;
+
 import java.util.List;
 
 public class ArtistService
 {
-	private final ArtistDAO artistDAO = new ArtistDAO();
+	private final ArtistDAO artistDAO;
+
+	public ArtistService(Database database)
+	{
+		this.artistDAO = new ArtistDAO(database);
+	}
 
 	public List<Artist> getArtists()
 	{

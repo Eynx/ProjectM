@@ -1,7 +1,7 @@
 package com.eynx.projectm.genre;
 
-import com.eynx.projectm.Application;
 import com.eynx.sql.Connection;
+import com.eynx.sql.Database;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,9 +16,16 @@ public class GenreDAO
 {
 	private static final Logger log = LoggerFactory.getLogger(GenreDAO.class);
 
+	private final Database database;
+
+	public GenreDAO(Database database)
+	{
+		this.database = database;
+	}
+
 	public List<Genre> getGenres()
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Querying the database. Retrieving all of the song genres in the Genres table.");
 
@@ -43,7 +50,7 @@ public class GenreDAO
 
 	public Genre getGenreByID(int id)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Querying the database. Retrieving a song genre by its ID from the Genres table.");
 
@@ -67,7 +74,7 @@ public class GenreDAO
 
 	public boolean addGenre(Genre genre)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Updating the database. Adding a new song genre to the Genres table.");
 
@@ -105,7 +112,7 @@ public class GenreDAO
 
 	public boolean updateGenre(Genre genre)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Updating the database. Updating an existing song genre in the Genres table.");
 
@@ -131,7 +138,7 @@ public class GenreDAO
 
 	public boolean removeGenre(int id)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Updating the database. Removing an existing song genre from the Genres table.");
 

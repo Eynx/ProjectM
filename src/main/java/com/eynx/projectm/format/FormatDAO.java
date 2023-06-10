@@ -1,7 +1,7 @@
 package com.eynx.projectm.format;
 
-import com.eynx.projectm.Application;
 import com.eynx.sql.Connection;
+import com.eynx.sql.Database;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,9 +16,16 @@ public class FormatDAO
 {
 	private static final Logger log = LoggerFactory.getLogger(FormatDAO.class);
 
+	private final Database database;
+
+	public FormatDAO(Database database)
+	{
+		this.database = database;
+	}
+
 	public List<Format> getFormats()
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Querying the database. Retrieving all of the file formats in the Formats table.");
 
@@ -43,7 +50,7 @@ public class FormatDAO
 
 	public Format getFormatByID(int id)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Querying the database. Retrieving a file format by its ID from the Formats table.");
 
@@ -67,7 +74,7 @@ public class FormatDAO
 
 	public boolean addFormat(Format format)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Updating the database. Adding a new file format to the Formats table.");
 
@@ -105,7 +112,7 @@ public class FormatDAO
 
 	public boolean updateFormat(Format format)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Updating the database. Updating an existing file format in the Formats table.");
 
@@ -131,7 +138,7 @@ public class FormatDAO
 
 	public boolean removeFormat(int id)
 	{
-		try(Connection connection = Application.database.getConnection())
+		try(Connection connection = database.getConnection())
 		{
 			log.info("Updating the database. Removing an existing file format from the Formats table.");
 

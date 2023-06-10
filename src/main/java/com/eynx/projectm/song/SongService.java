@@ -1,10 +1,17 @@
 package com.eynx.projectm.song;
 
+import com.eynx.sql.Database;
+
 import java.util.List;
 
 public class SongService
 {
-	private final SongDAO songDAO = new SongDAO();
+	private final SongDAO songDAO;
+
+	public SongService(Database database)
+	{
+		this.songDAO = new SongDAO(database);
+	}
 
 	public List<Song> getAlbums()
 	{

@@ -1,10 +1,17 @@
 package com.eynx.projectm.genre;
 
+import com.eynx.sql.Database;
+
 import java.util.List;
 
 public class GenreService
 {
-	private final GenreDAO genreDAO = new GenreDAO();
+	private final GenreDAO genreDAO;
+
+	public GenreService(Database database)
+	{
+		this.genreDAO = new GenreDAO(database);
+	}
 
 	public List<Genre> getAlbums()
 	{

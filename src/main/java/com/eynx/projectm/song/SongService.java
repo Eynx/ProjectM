@@ -12,6 +12,10 @@ public class SongService
 	{
 		this.songDAO = new SongDAO(database);
 	}
+	public SongService(SongDAO songDAO)
+	{
+		this.songDAO = songDAO;
+	}
 
 	public List<Song> getSongs()
 	{
@@ -20,7 +24,12 @@ public class SongService
 
 	public Song getSongByID(int id)
 	{
-		return songDAO.getSongByID(id);
+		// Verify the ID is a valid SQL index.
+		if(id > 0) {
+			return songDAO.getSongByID(id);
+		} else {
+			return null;
+		}
 	}
 
 	public boolean addSong(Song Song)
@@ -35,6 +44,11 @@ public class SongService
 
 	public boolean removeSong(int id)
 	{
-		return songDAO.removeSong(id);
+		// Verify the ID is a valid SQL index.
+		if(id > 0) {
+			return songDAO.removeSong(id);
+		} else {
+			return false;
+		}
 	}
 }

@@ -3,21 +3,30 @@
 
 <configuration>
 	<import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"/>
-	<import class="ch.qos.logback.core.FileAppender"/>
+	<import class="ch.qos.logback.core.rolling.RollingFileAppender"/>
+	<import class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"/>
 	<import class="ch.qos.logback.core.ConsoleAppender"/>
 
-	<appender name="FILE" class="FileAppender">
-		<file>myApp.log</file>
+	<!-- Setup logging to the logs directory and daily compression of log files -->
+	<appender name="FILE" class="RollingFileAppender">
+		<file>logs/latest.log</file>
+		<rollingPolicy class="TimeBasedRollingPolicy">
+			<fileNamePattern>logs/%d{yyyy-MM-dd}.zip</fileNamePattern>
+		</rollingPolicy>
 		<encoder class="PatternLayoutEncoder">
-			<pattern>%date %level [%thread] %logger{10} [%file:%line] -%kvp- %msg%n</pattern>
+			<pattern>%date{HH:mm:ss} %-7([%level]) %-40logger{40} - %msg%n</pattern>
 		</encoder>
 	</appender>
 
+	<!-- Setup console logging -->
 	<appender name="STDOUT" class="ConsoleAppender">
 		<encoder class="PatternLayoutEncoder">
-			<pattern>%kvp %msg%n</pattern>
+			<pattern>%logger{0} [%level] - %msg%n</pattern>
 		</encoder>
 	</appender>
+
+	<!-- Set Jetty logging level to INFO instead of DEBUG -->
+	<logger name="org.eclipse.jetty" level="INFO"/>
 
 	<root level="debug">
 		<appender-ref ref="FILE"/>

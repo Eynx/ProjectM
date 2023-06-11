@@ -13,27 +13,27 @@ public class FormatService
 		this.formatDAO = new FormatDAO(database);
 	}
 
-	public List<Format> getAlbums()
+	public List<Format> getFormats()
 	{
 		return formatDAO.getFormats();
 	}
 
-	public Format getAlbumByID(int id)
+	public Format getFormatByID(int id)
 	{
 		return formatDAO.getFormatByID(id);
 	}
 
-	public boolean addAlbum(Format Format)
+	public boolean addFormat(Format Format)
 	{
 		return formatDAO.addFormat(Format);
 	}
 
-	public boolean updateAlbum(Format Format)
+	public boolean updateFormat(Format Format)
 	{
 		return formatDAO.updateFormat(Format);
 	}
 
-	public boolean removeAlbum(int id)
+	public boolean removeFormat(int id)
 	{
 		return formatDAO.removeFormat(id);
 	}

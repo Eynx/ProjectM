@@ -13,27 +13,27 @@ public class GenreService
 		this.genreDAO = new GenreDAO(database);
 	}
 
-	public List<Genre> getAlbums()
+	public List<Genre> getGenres()
 	{
 		return genreDAO.getGenres();
 	}
 
-	public Genre getAlbumByID(int id)
+	public Genre getGenreByID(int id)
 	{
 		return genreDAO.getGenreByID(id);
 	}
 
-	public boolean addAlbum(Genre Genre)
+	public boolean addGenre(Genre Genre)
 	{
 		return genreDAO.addGenre(Genre);
 	}
 
-	public boolean updateAlbum(Genre Genre)
+	public boolean updateGenre(Genre Genre)
 	{
 		return genreDAO.updateGenre(Genre);
 	}
 
-	public boolean removeAlbum(int id)
+	public boolean removeGenre(int id)
 	{
 		return genreDAO.removeGenre(id);
 	}

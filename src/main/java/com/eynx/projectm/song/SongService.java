@@ -13,27 +13,27 @@ public class SongService
 		this.songDAO = new SongDAO(database);
 	}
 
-	public List<Song> getAlbums()
+	public List<Song> getSongs()
 	{
 		return songDAO.getSongs();
 	}
 
-	public Song getAlbumByID(int id)
+	public Song getSongByID(int id)
 	{
 		return songDAO.getSongByID(id);
 	}
 
-	public boolean addAlbum(Song Song)
+	public boolean addSong(Song Song)
 	{
 		return songDAO.addSong(Song);
 	}
 
-	public boolean updateAlbum(Song Song)
+	public boolean updateSong(Song Song)
 	{
 		return songDAO.updateSong(Song);
 	}
 
-	public boolean removeAlbum(int id)
+	public boolean removeSong(int id)
 	{
 		return songDAO.removeSong(id);
 	}
